@@ -1,0 +1,14 @@
+{
+  "name": "Tarius",
+  "version": "1.0.0",
+  "description": "AI tool to help you with everything.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["http://localhost:3000/"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Tarius"
+  } 
+}

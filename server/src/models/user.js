@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     openai_api_key: { type: String },
-    requests_per_month: { type: Number, default: 50 },
+    requests_remaining: { type: Number, default: 50 },
     tier: { type: String, enum : ['FREE', 'PAID'], default: 'FREE' }
 })
 

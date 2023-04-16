@@ -18,3 +18,20 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   console.log("...");
   console.log(sendResponse);
 });
+
+chrome.commands.onCommand.addListener(function (command) {
+  if (command === "open") {
+    console.log("open");
+    chrome.tabs.query(
+      { active: true, windowType: "normal", currentWindow: true },
+      function (tabs) {
+        chrome.tabs
+          .sendMessage(tabs[0].id, {
+            type: "test",
+          })
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
+      }
+    );
+  }
+});

@@ -29,7 +29,7 @@ document
             if (json?.errorMessage) {
               alert(json.errorMessage);
             } else {
-              console.log(json)
+              console.log(json);
               chrome.storage.local.set(
                 { id: json.user_id, token: json.token },
                 function (response) {
@@ -37,11 +37,10 @@ document
                   chrome.tabs.query(
                     { active: true, windowType: "normal", currentWindow: true },
                     function (tabs) {
-                      
                       chrome.tabs.create({
                         url: "../html/dashboard.html",
                       });
-                      // chrome.tabs.remove(tabs[0].id);
+                      chrome.tabs.remove(tabs[0].id);
                     }
                   );
                 }

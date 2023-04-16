@@ -7,9 +7,23 @@
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
   "manifest_version": 3,
   "action": {
     "default_title": "Tarius",
     "default_popup": "popup.html"
-  } 
+  },
+  "commands": {
+    "open": {
+      "suggested_key": {
+        "default": "Alt+T"
+      },
+      "description": "Open the dialog"
+    }
+  }
 }

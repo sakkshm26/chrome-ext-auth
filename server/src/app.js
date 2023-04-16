@@ -3,7 +3,8 @@ import bodyParser from "body-parser"
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
-import { authRouter } from "./routes/index.js";
+import { authRouter, userRouter } from "./routes/index.js";
+import auth from "./middlewares/auth.js";
 dotenv.config();
 
 mongoose
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
 })
 
 app.use('/auth', authRouter)
+app.use('/user', auth, userRouter)
 
 const port = process.env.PORT || 4000;
 
